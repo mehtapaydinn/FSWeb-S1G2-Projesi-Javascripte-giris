@@ -199,3 +199,91 @@ module.exports = {
   cocukSarkisi,
   notHesapla,
 };
+
+
+
+/* Görev 1d - Çarpma */
+function carpma(a, b) {
+  return a * b;
+}
+// Test
+console.log(carpma(7, 4)); // 28
+
+/* Görev 2 : Köpeğin Yaşı */
+function kopeginYasi(insanYasi) {
+  return insanYasi * 7;
+}
+// Test
+console.log(kopeginYasi(5)); // 35
+
+/* Görev 3 : Taş, Kağıt, Makas */
+function oyun(oyuncu, bilgisayar) {
+  if (oyuncu === bilgisayar) return "Beraberlik";
+  if (
+    (oyuncu === "Makas" && bilgisayar === "Kağıt") ||
+    (oyuncu === "Kağıt" && bilgisayar === "Taş") ||
+    (oyuncu === "Taş" && bilgisayar === "Makas")
+  ) {
+    return "Kazandın!";
+  } else {
+    return "Kaybettin!";
+  }
+}
+
+// Bilgisayar seçimi
+function bilgisayarinSecimi() {
+  const rnd = Math.random();
+  if (rnd < 1/3) return "Taş";
+  else if (rnd < 2/3) return "Kağıt";
+  else return "Makas";
+}
+// Test
+console.log(oyun("Makas", bilgisayarinSecimi()));
+
+/* Görev 4a - Kilometreden Mil */
+function milDonusturucu(km) {
+  return km * 0.621371;
+}
+// Test
+console.log(milDonusturucu(10)); // 6.21371
+
+/* Görev 4b - Santimetreden Feet */
+function feetDonusturucu(cm) {
+  return cm / 30.48;
+}
+// Test
+console.log(feetDonusturucu(100)); // 3.2808
+
+/* Görev 5 : 5 Küçük Maymun */
+function cocukSarkisi(sayi) {
+  return `${sayi} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`;
+}
+// Döngü
+let maymunSayisi = 5;
+while (maymunSayisi > 0) {
+  console.log(cocukSarkisi(maymunSayisi));
+  maymunSayisi--;
+}
+
+/* Görev 6 : Not Hesaplayıcı */
+function notHesapla(puan) {
+  if (puan >= 90) return "A aldın";
+  else if (puan >= 80) return "B aldın";
+  else if (puan >= 70) return "C aldın";
+  else if (puan >= 60) return "D aldın";
+  else return "F aldın";
+}
+// Test
+console.log(notHesapla(85)); // B aldın
+
+/* Bonus: Sesli Harf Sayacı */
+function sesliHarfSayaci(str) {
+  const sesliler = ["a", "e", "ı", "i", "o", "ö", "u", "ü"];
+  let sayac = 0;
+  for (let harf of str.toLowerCase()) {
+    if (sesliler.includes(harf)) sayac++;
+  }
+  return sayac;
+}
+// Test
+console.log(sesliHarfSayaci("Merhaba Dünya")); // 5
